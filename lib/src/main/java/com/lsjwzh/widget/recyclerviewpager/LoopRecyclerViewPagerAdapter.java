@@ -50,7 +50,7 @@ public class LoopRecyclerViewPagerAdapter<VH extends RecyclerView.ViewHolder>
         // so we must reset mPosition if exists.
         if (mPositionField == null) {
             try {
-                mPositionField = holder.getClass().getDeclaredField("mPosition");
+                mPositionField = RecyclerView.ViewHolder.class.getDeclaredField("mPosition");
                 mPositionField.setAccessible(true);
             } catch (NoSuchFieldException e) {
                 Log.i(TAG, "The holder doesn't have a mPosition field.");
